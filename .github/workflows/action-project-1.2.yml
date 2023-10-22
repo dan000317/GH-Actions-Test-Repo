@@ -6,4 +6,4 @@
         runs-on: ubuntu-latest
         steps:
           - name: Output Event Details
-            run: echo '${{toYAML(github.event)}}'
+            run: echo '${{toJson(github.event)}}'
