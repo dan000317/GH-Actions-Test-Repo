@@ -1,17 +1,20 @@
 name: Deployment
-on: push
+on: 
+  push:
+    branches:
+      - sample-problem-enviroment-variables-and-secrets
 
 env:
   MONGO_DB_NAME: gha-demo
 
 jobs:
   test:
+    environment: testing
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.y0evxkg.mongodb.net
       MONGODB_USERNAME: ${{secrets.MONGODB_USERNAME}}
       MONGODB_PASSWORD: ${{secrets.MONGODB_PASSWORD}}
       PORT: 8080
-    environment: testing
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -32,6 +35,7 @@ jobs:
           echo "MONGODB_USERNAME: ${{env.MONGODB_USERNAME}}"
   deploy:
     needs: test
+    environment: testing
     runs-on: ubuntu-latest
     steps:
       - name: Output information
