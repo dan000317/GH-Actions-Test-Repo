@@ -8,8 +8,9 @@ on:
         default: dist
         type: string
     outputs:
-      description: The result of the deployment operation
-      value: ${{jobs.deploy.outputs.outcome}}
+      results:
+        description: The result of the deployment operation
+        value: ${{jobs.deploy.outputs.outcome}}
   # secrets:
   #   some-secrets:
   #     value: ${{secrets.GITHUB_TOKEN}}
