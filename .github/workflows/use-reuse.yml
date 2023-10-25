@@ -85,7 +85,7 @@ jobs:
     needs: [lint, deploy]
     if: failure()
     steps:
-      - name: Output information
+      - name: Output  information
         run: |
           echo 'Something went wrong '
           echo '${{github}}'
