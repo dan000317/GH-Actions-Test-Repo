@@ -2,7 +2,7 @@ name: Deployment
 on:
   push:
     branches:
-      - main
+      - sample-project-building-and-using-custom-action
 jobs:
   lint:
     runs-on: ubuntu-latest
